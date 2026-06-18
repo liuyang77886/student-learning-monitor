@@ -1,0 +1,147 @@
+# Student Learning Monitor - Configuration File
+
+# ============================================================================
+# 1. MONITORING - 监督系统配置
+# ============================================================================
+monitoring:
+  posture:
+    bad_posture_threshold: 0.7
+    head_down_threshold: 50
+    spine_bend_threshold: 30
+    reminder_cooldown: 30
+    alert_type: "both"
+    frames_to_trigger: 15
+  
+  attention:
+    distraction_timeout: 3
+    min_pen_movement: 0.5
+    head_movement_threshold: 10
+    eye_closure_timeout: 2
+    enable_eye_tracking: true
+    enable_pen_tracking: true
+
+# ============================================================================
+# 2. TUTORING - AI 辅导系统配置
+# ============================================================================
+tutoring:
+  model: "chatglm"
+  model_path: "./models/chatglm-6b"
+  api_key: "${TUTORING_API_KEY}"
+  hint_level: "medium"
+  encouragement_interval: 60
+  max_consecutive_hints: 3
+  strict_no_answer_mode: true
+  answer_detection_sensitivity: 0.8
+  
+  question_analysis:
+    ocr_engine: "paddleocr"
+    auto_classify: true
+    subjects:
+      - "mathematics"
+      - "chinese"
+      - "english"
+      - "physics"
+      - "chemistry"
+      - "biology"
+
+# ============================================================================
+# 3. VISION - 视觉处理配置
+# ============================================================================
+vision:
+  yolo_model: "yolov8n"
+  pose_model: "mediapipe"
+  ocr_model: "paddleocr"
+  confidence_threshold: 0.5
+  
+  video:
+    source: 0
+    fps: 30
+    resolution: 640
+    record_video: false
+    record_path: "./data/recordings/"
+  
+  processing:
+    use_gpu: true
+    gpu_id: 0
+    num_threads: 4
+
+# ============================================================================
+# 4. MOBILE - 移动端部署配置
+# ============================================================================
+mobile:
+  enable_quantization: true
+  quantization_bits: "int8"
+  target_fps: 15
+  model_format: "tflite"
+  max_memory: 500
+  enable_optimization: true
+
+# ============================================================================
+# 5. UI - 用户界面配置
+# ============================================================================
+ui:
+  framework: "streamlit"
+  theme: "light"
+  show_video_stream: true
+  show_statistics: true
+  show_alerts: true
+  refresh_interval: 500
+
+# ============================================================================
+# 6. AUDIO - 音频反馈配置
+# ============================================================================
+audio:
+  sounds_path: "./data/sounds/"
+  posture_alert_sound: "posture_alert.mp3"
+  distraction_alert_sound: "distraction_alert.mp3"
+  encouragement_sound: "encouragement.mp3"
+  enable_tts: true
+  tts_engine: "baidu"
+  volume: 0.7
+  playback_speed: 1.0
+
+# ============================================================================
+# 7. LOGGING - 日志配置
+# ============================================================================
+logging:
+  level: "INFO"
+  file_path: "./logs/app.log"
+  max_file_size: 10
+  backup_count: 5
+  enable_console: true
+
+# ============================================================================
+# 8. DATA - 数据存储配置
+# ============================================================================
+data:
+  data_path: "./data/"
+  enable_database: true
+  database_type: "sqlite"
+  database_url: "sqlite:///./data/learning_monitor.db"
+  backup_interval: 3600
+
+# ============================================================================
+# 9. PERFORMANCE - 性能优化配置
+# ============================================================================
+performance:
+  enable_cache: true
+  cache_size: 100
+  enable_model_warmup: true
+  warmup_frames: 10
+  batch_size: 1
+  enable_async_inference: true
+
+# ============================================================================
+# 10. DEVELOPMENT - 开发配置
+# ============================================================================
+development:
+  debug_mode: false
+  show_performance_stats: true
+  save_debug_images: false
+  debug_images_path: "./data/debug_images/"
+  test_mode: false
+
+prompts:
+  hints_path: "./data/prompts/hints.json"
+  encouragement_path: "./data/prompts/encouragement.json"
+  reminders_path: "./data/prompts/reminders.json"
