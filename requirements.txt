@@ -1,48 +1,46 @@
 # Vision and Detection
-ultralytics==8.0.177  # YOLOv8
-mediapipe==0.10.0
-opencv-python==4.8.1.78
-opencv-contrib-python==4.8.1.78
+ultralytics>=8.0.0
+mediapipe
+opencv-python>=4.5.0
+opencv-contrib-python>=4.5.0
 
 # OCR
-paddleocr==2.7.0.3
-pytesseract==0.3.10
+paddleocr
+pytesseract
 
 # AI and NLP
-transformers==4.34.0
-torch==2.1.0
-numpy==1.24.3
-scipy==1.11.2
+transformers>=4.30.0
+torch
+numpy
+scipy
 
 # UI and Visualization
-streamlit==1.28.1
-plotly==5.17.0
-matplotlib==3.7.2
-pillow==10.0.0
+streamlit>=1.20.0
+plotly
+matplotlib
+pillow
 
 # Mobile and Optimization
-onnx==1.14.1
-onnxruntime==1.16.2
-tf2onnx==1.14.0
-tensorflow==2.13.0
+onnx
+onnxruntime
+tensorflow
 
 # Audio
-pydub==0.25.1
-scipy==1.11.2
+pydub
 
 # Data Processing
-pandas==2.0.3
-pyyaml==6.0.1
+pandas
+pyyaml
 
 # Logging and Utils
-python-dotenv==1.0.0
-loguru==0.7.0
+python-dotenv
+loguru
 
 # Testing
-pytest==7.4.0
-pytest-cov==4.1.0
+pytest
+pytest-cov
 
 # Code Quality
-flake8==6.1.0
-black==23.9.1
-isort==5.12.0
+flake8
+black
+isort
